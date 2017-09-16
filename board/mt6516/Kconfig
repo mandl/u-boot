@@ -1,0 +1,16 @@
+if TARGET_MT6516
+
+config SYS_BOARD
+	default "mt6516"
+
+config SYS_SOC
+	default "mt6516"
+
+config SYS_CONFIG_NAME
+	default "mt6516"
+
+config BOOTDELAY 
+	default "-1"
+	
+
+endif
