@@ -1,0 +1,39 @@
+if MT6516
+
+
+config SYS_BOARD
+	default "mt6516"
+	
+config MT6516_SERIAL_UART
+	bool
+	default y
+
+config BAUDRATE
+	default "115200"
+	
+config BOARD_EARLY_INIT_F
+	bool
+	default y
+
+config SYS_HZ
+	default "812500"
+	
+config SYS_CONFIG_NAME
+	default "mt6516"
+
+config SYS_SOC
+	default "mt6516"
+
+config CMD_BOOTM
+     default n
+endif
+
+config SYS_MEMTEST_START
+	hex 
+	default "0x40000000"
+
+config SYS_MEMTEST_END
+	hex
+	default "0x40010000"
+
+
