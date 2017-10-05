@@ -1,0 +1,22 @@
+/dts-v1/;
+
+/ {
+    #address-cells = <1>;
+    #size-cells = <0>;
+    model = "mt6516 board";
+  
+    chosen {
+        stdout-path = &uart0;
+    };
+ 
+    uart0: serial@8002B000{
+        compatible = "mt6516";
+        reg = <0x8002B000 0x50>;
+        clock-frequency = <52000000>;
+        current-speed = <115200>;
+    };
+
+   
+
+   
+};

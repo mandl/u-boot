@@ -6,8 +6,11 @@
  */
 
 #include <common.h>
+#include <dm.h>
 #include <asm/processor.h>
+#include <dm.h>
 #include <asm/io.h>
+#include <dm/platform_data/serial_mt6516.h>
 
 DECLARE_GLOBAL_DATA_PTR;
 
@@ -181,12 +184,14 @@ extern uint32_t load_8word(uint32_t a, uint32_t b);
 
 void lowlevel_init(void) {
 
+
 }
 int board_early_init_f(void) {
 
 	uint16_t tmp;
 	uint16_t bbpu;
 	volatile uint32_t i;
+
 
 	// disablewatchdog
 
@@ -455,6 +460,15 @@ int dram_init(void) {
 
 	return 0;
 }
+
+static const struct mt6516_serial_platdata serial_platdata = {
+	.base = (struct mt6516_usart *)MT6516_UART1_BASE,
+};
+
+U_BOOT_DEVICE(mt6516_serial) = {
+	.name = "serial_mt6516",
+	.platdata = &serial_platdata,
+};
 
 #if defined(CONFIG_SYS_DRAM_TEST)
 int testdram (void)

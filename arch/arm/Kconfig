@@ -1099,6 +1099,13 @@ config ARCH_ASPEED
 	select OF_CONTROL
 	select DM
 
+config MT6516
+	bool "Support MT6516"
+	select CPU_ARM926EJS
+	select DM
+    select BOARD_EARLY_INIT_F
+    select DM_SERIAL
+
 endchoice
 
 source "arch/arm/mach-aspeed/Kconfig"
@@ -1171,6 +1178,8 @@ source "arch/arm/cpu/armv8/Kconfig"
 
 source "arch/arm/mach-imx/Kconfig"
 
+source "arch/arm/mach-mt6516/Kconfig"
+
 source "board/aries/m28evk/Kconfig"
 source "board/bosch/shc/Kconfig"
 source "board/CarMediaLab/flea3/Kconfig"
@@ -1238,6 +1247,7 @@ source "board/vscom/baltos/Kconfig"
 source "board/woodburn/Kconfig"
 source "board/work-microwave/work_92105/Kconfig"
 source "board/zipitz2/Kconfig"
+source "board/mt6516/Kconfig"
 
 source "arch/arm/Kconfig.debug"
 
